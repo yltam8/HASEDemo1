@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HASE Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body class="container">
+	<h1 class="text-success">Scheduler console</h1>
+
+	<div>
+		<strong style="font-size:large;"><span>Welcome</span></strong>
+		<div style="float: right;"><button type="button" class="btn btn-primary" name="logOutBtn">Log Out</button></div>
+		
+	</div>
+
+	<div  style="float: left;margin-left: 30px">
+		<button value="Start"  name="startBtn" class="btn btn-success actionBtn" style="width: 150px">Start</button>
+	</div>
+	<div  style="float: left;margin-left: 30px">
+		<button value="End"  name="endBtn" class="btn btn-success actionBtn" style="width: 150px">End</button>
+	</div>
+
+</body>
+
+<script type="text/javascript">
+$(function() {
+	
+	$("[name='startBtn']").click(function(){
+		$.get("/batchjob/start/", function(data){
+			 alert("Result : " + data);
+		});
+	});
+	
+	$("[name='endBtn']").click(function(){
+		$.get("/batchjob/end/", function(data){
+			 alert("Result : " + data);
+		});
+	});
+	
+}); 
+</script>
+
+
+</html>
